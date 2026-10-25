@@ -32,3 +32,4 @@ function App() {
 export default App;
 
 //Test aja commit dan push
+//test 2 aja
