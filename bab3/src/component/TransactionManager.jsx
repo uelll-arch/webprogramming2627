@@ -14,6 +14,8 @@ function TransactionManager() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
+  /* implementasi promise tradisional
+  
   const ambilData = () => {
     fetch('http://localhost:3000/transaksi')
     .then ((response) => response.json())
@@ -26,6 +28,7 @@ function TransactionManager() {
     });
 
   };
+  */
   const ambilDataAsync = async () =>{   
     try {
       const response = await fetch('http://localhost:3000/transaksi');
@@ -40,14 +43,12 @@ function TransactionManager() {
     }
   };
   useEffect(() => {
-    ambilData();
     ambilDataAsync();
   }, []);
 
-  
   return (
     <div className="container mt-4">
-      <AppNavigation />
+      {/* <AppNavigation /> */}
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h3>Penggunaan Anggaran</h3>
         <Button variant="success" onClick={handleShow}>
