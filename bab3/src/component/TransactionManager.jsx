@@ -15,7 +15,7 @@ function TransactionManager() {
   const handleShow = () => setShow(true);
   
   /* implementasi promise tradisional
-  
+
   const ambilData = () => {
     fetch('http://localhost:3000/transaksi')
     .then ((response) => response.json())
@@ -29,6 +29,7 @@ function TransactionManager() {
 
   };
   */
+ //Perbaikan setTransaksi fiks
   const ambilDataAsync = async () =>{   
     try {
       const response = await fetch('http://localhost:3000/transaksi');
