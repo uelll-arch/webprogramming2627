@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import {useState} from 'react'; 
 */}
 import {Form, InputGroup, Modal, Button, Table, ProgressBar}from 'react-bootstrap';
+import AppNavigation from './AppNavigation';
 
 // const s = useState(false)
 function TransactionManager() {
@@ -46,6 +47,7 @@ function TransactionManager() {
   
   return (
     <div className="container mt-4">
+      <AppNavigation />
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h3>Penggunaan Anggaran</h3>
         <Button variant="success" onClick={handleShow}>
