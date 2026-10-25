@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
-// import {useState} from 'react'
 import {Form, InputGroup, Modal, Button, Table, ProgressBar} from 'react-bootstrap'
-
-// const s = useState(false)
+import AppNavigation from './AppNavigation'
 
 function TransactionManager() {
   const [show, setShow] = useState(false)
@@ -11,24 +9,41 @@ function TransactionManager() {
 
   const [transaksi, setTransaksi] = useState([])
 
+  /* implementasi promise tradisional
   const ambilData = () => {
     fetch('http://localhost:3000/transaksi')
-      .then ((response) => response.json())
-      .then((data) => {
-        console.log('Data diterima:', data)
-        setTransaksi(data)
-      })
-      .catch((error) => {
-        console.log('Terjadi error:', error)
-      })
-  }
+    .then ((response) => response.json())
+    .then((data) => {
+      console.log('Data diterima:', data)
+      setTransaksi(data)
+    })
+    .catch((error) => {
+      console.error('Terjadi kesalahan saat mengambil data:', error);
+    });
+  };
+  */
+
+  const ambilDataAsync = async () =>{
+    try {
+      const response = await fetch('http://localhost:3000/transaksi');
+      if (!response.ok) {
+        throw new Error ('Gagal mengambil data dari server')
+      }
+      const data = await response.json()
+      console.log ('Data diterima:', data)
+      setTransaksi(data);
+    } catch (error) {
+      console.error('Error:', error.message)
+    }
+  };
 
   useEffect(() => {
-    ambilData();
+    ambilDataAsync();
   }, [])
 
   return (
     <div className="container mt-4">
+      <AppNavigation />
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h3>Penggunaan Anggaran</h3>
         <Button variant="primary" onClick={handleShow}>Tambah Transaksi</Button>
