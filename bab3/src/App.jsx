@@ -11,6 +11,9 @@ import HeaderBanner from './component/HeaderBanner'
 import TransactionManager from './component/TransactionManager'
 import FormTambahTransaksi from './component/FormTambahTransaksi'
 import DaftarTugas from './component/DaftarTugas'
+import DaftarTugasFunction from './component/DaftarTugasFunction'
+import PostListFetch from './component/PostListFetch'
+import PostListAxios from './component/PostListAxios'
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
         <Route path='/TransactionManager' element={ <TransactionManager/> } />
         <Route path='/FormTambahTransaksi' element={ <FormTambahTransaksi/> } />
         <Route path='/DaftarTugas' element={ <DaftarTugas/> } />
+        <Route path='/DaftarTugasFunction' element={ <DaftarTugasFunction/> } />
+        <Route path='/PostListFetch' element={ <PostListFetch/> } />
+        <Route path='/PostListAxios' element={ <PostListAxios/> } />
       </Routes>
     </>
   );
