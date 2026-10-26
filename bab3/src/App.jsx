@@ -10,6 +10,7 @@ import CardStatusDemo from './component/CardStatusDemo'
 import HeaderBanner from './component/HeaderBanner'
 import TransactionManager from './component/TransactionManager'
 import FormTambahTransaksi from './component/FormTambahTransaksi'
+import DaftarTugas from './component/DaftarTugas'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/AppNavigation' element={ <AppNavigation/> } />
         <Route path='/TransactionManager' element={ <TransactionManager/> } />
         <Route path='/FormTambahTransaksi' element={ <FormTambahTransaksi/> } />
+        <Route path='/DaftarTugas' element={ <DaftarTugas/> } />
       </Routes>
     </>
   );
