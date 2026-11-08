@@ -15,7 +15,7 @@ function TransactionManager() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
+
   /* implementasi promise tradisional
 
   const ambilData = () => {
@@ -31,7 +31,7 @@ function TransactionManager() {
 
   };
   */
- //Perbaikan setTransaksi fiks
+
   const ambilDataAsync = async () =>{   
     try {
       const response = await fetch('http://localhost:3000/transaksi');
@@ -46,31 +46,10 @@ function TransactionManager() {
     }
   };
 
-  const handleSimpan = async () => {
-    try {
-      const response = await fetch('http://localhost:3000/transaksi', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          keterangan: keterangan,
-          kategori: 'Pengeluaran',
-          nominal: Number(nominal)
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Gagal menyimpan transaksi');
-      }
-
-      await ambilDataAsync(); // refresh tabel
-      setKeterangan('');
-      setNominal('');
-      setShow(false);
-    } catch (error) {
-      console.error('Error:', error.message);
-    }
+  const handleSimpan = () => {
+    setKeterangan('');
+    setNominal('');
+    setShow(false);
   };
 
   useEffect(() => {
@@ -157,3 +136,4 @@ function TransactionManager() {
 }
 
 export default TransactionManager;
+//perbaikan TransactionManager fiks
