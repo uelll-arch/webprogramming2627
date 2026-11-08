@@ -20,7 +20,7 @@ function PostListAxios() {
   }, []);
 
   if (loading) return <p>Memuat data...</p>;
-  return <ul>{posts.slice(0, 5).map(post => <li key={post.id}>{post.title}</li>)}</ul>;
+  return <ul>{posts.slice(0,100000).map(post => <li key={post.id}>{post.title}</li>)}</ul>;
 }
 
 export default PostListAxios;

@@ -1,7 +1,21 @@
 {
-  "transaksi": [
-    {id:1, keterangan: "Gaji Bulanan", kategori: "Pemasukan", nominal: 2500000},
-    {id:2, keterangan: "Beli Buku", kategori: "Pengeluaran", nominal: 150000},
-    {id:3, keterangan: "Bayar Listrik", kategori: "Pengeluaran", nominal: 300000}
-  ]
+  posts: [
+    { id: "1", title: "a title", views: 100 },
+    { id: "2", title: "another title", views: 200 },
+  ],
+  comments: [
+    { id: "1", text: "a comment about post 1", postId: "1" },
+    { id: "2", text: "another comment about post 1", postId: "1" },
+  ],
+  profile: {
+    name: "typicode",
+  },
+
+
+  transaksi: [
+    {id:1, keterangan: "Belanja Bulanan", kategori: "pengeluaran", nominal: "Rp. 759.000" },
+    {id:2, keterangan: "Belanja Bulanan", kategori: "pengeluaran", nominal: "Rp. 750.000" },
+    {id:3, keterangan: "Belanja Bulanan", kategori: "pengeluaran", nominal: "Rp. 760.000" },
+    {id:4, keterangan: "Belanja Bulanan", kategori: "pengeluaran", nominal: "Rp. 780.000" },
+  ],
 }

@@ -10,6 +10,8 @@ import AppNavigation from './AppNavigation';
 function TransactionManager() {
   const [show, setShow] = useState(false)
   const [transaksi, setTransaksi] = useState([])
+  const [keterangan, setKeterangan] = useState('')
+  const [nominal, setNominal] = useState('')
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -43,6 +45,34 @@ function TransactionManager() {
       console.error('Error:', error.message);
     }
   };
+
+  const handleSimpan = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/transaksi', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          keterangan: keterangan,
+          kategori: 'Pengeluaran',
+          nominal: Number(nominal)
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Gagal menyimpan transaksi');
+      }
+
+      await ambilDataAsync(); // refresh tabel
+      setKeterangan('');
+      setNominal('');
+      setShow(false);
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
+  };
+
   useEffect(() => {
     ambilDataAsync();
   }, []);
@@ -92,13 +122,23 @@ function TransactionManager() {
           <Form>
             <Form.Group className="mb-3">
               <Form.Label>Keterangan</Form.Label>
-              <Form.Control type="text" placeholder="Misal: Bensin" />
+              <Form.Control
+                type="text"
+                placeholder="Misal: Bensin"
+                value={keterangan}
+                onChange={(e) => setKeterangan(e.target.value)}
+              />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Nominal</Form.Label>
               <InputGroup>
                 <InputGroup.Text>Rp</InputGroup.Text>
-                <Form.Control type="number" placeholder="0" />
+                <Form.Control
+                  type="number"
+                  placeholder="0"
+                  value={nominal}
+                  onChange={(e) => setNominal(e.target.value)}
+                />
               </InputGroup>
             </Form.Group>
           </Form>
@@ -107,7 +147,7 @@ function TransactionManager() {
           <Button variant="secondary" onClick={handleClose}>
             Batal
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleSimpan}>
             Simpan Transaksi
           </Button>
         </Modal.Footer>
