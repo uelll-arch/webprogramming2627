@@ -26,6 +26,7 @@ function AppNavigation(){
               <NavDropdown.Item as={NavLink} to="/PostListAxios">PostListAxios</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/DaftarTransaksi">DaftarTransaksi</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/TabelTransaksiDinamis">TabelTransaksiDinamis</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/FormTambahTransaksiPost">FormTambahTransaksiPost</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

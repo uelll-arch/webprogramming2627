@@ -16,6 +16,7 @@ import PostListFetch from './component/PostListFetch'
 import PostListAxios from './component/PostListAxios'
 import DaftarTransaksi from './component/DaftarTransaksi'
 import TabelTransaksiDinamis from './component/TabelTransaksiDinamis'
+import FormTambahTransaksiPost from './component/FormTambahTransaksiPost'
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path='/PostListAxios' element={ <PostListAxios/> } />
         <Route path='/DaftarTransaksi' element={ <DaftarTransaksi/> } />
         <Route path='/TabelTransaksiDinamis' element={ <TabelTransaksiDinamis/> } />
+        <Route path='/FormTambahTransaksiPost' element={ <FormTambahTransaksiPost/> } />
       </Routes>
     </>
   );
